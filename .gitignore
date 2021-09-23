@@ -1,0 +1,17 @@
+__pycache__/
+*~
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
