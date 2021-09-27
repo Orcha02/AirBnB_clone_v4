@@ -15,7 +15,7 @@ $(document).ready(() => {
     }
     $('div.amenities h4').text(list.join(', '));
   });
-});
+
 $.getJSON('http://0.0.0.0:5001/api/v1/status', content => {
   if (content.status === 'OK') {
     $('#api_status').addClass('available');
@@ -23,9 +23,10 @@ $.getJSON('http://0.0.0.0:5001/api/v1/status', content => {
     $('#api_status').removeClass('available');
   }
 });
+
 const json_body = {};
 $.ajax({
-    url: 'http://127.0.0.1:5001/api/v1/places_search/',
+    url: 'http://localhost:5001/api/v1/places_search/',
     type: 'POST',
     data: JSON.stringify(json_body),
     contentType: 'application/json ',
@@ -55,3 +56,12 @@ $.ajax({
     }
 });
 
+ $('#search').click(() => {
+    const filters = {
+      amenities: Object.keys(CheckList)
+    };
+    search(filters);
+  });
+
+  search();
+});
